@@ -1,0 +1,22 @@
+<section class="container">
+    <div class="pt-5 pb-5">
+        <h1 class="text-center">Usuários Cadastrados</h1>
+    </div>
+    <div class="d-flex flex-wrap">
+        {{#each users}}
+            <div class="col-12 col-lg-4 p-2">
+                <div class="p-4 border rounded">
+                    <p class="col-12">{{this.name}}</p>
+                    <p class="col-12">{{this.occupation}}</p>
+                    <div class="d-flex justify-content-between flex-wrap">
+                        <a class="btn btn-primary mt-1" href="/users/{{this.id}}">Ver detalhes</a>
+                        <a class="btn btn-warning mt-1" href="/users/edit/{{this.id}}">Editar</a>
+                        <form class="mt-1" action="/users/delete/{{this.id}}" method="POST">
+                            <input class="btn btn-danger" type="submit" value="Excluir" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>
