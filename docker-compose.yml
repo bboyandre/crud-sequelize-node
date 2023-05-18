@@ -6,38 +6,20 @@ services:
     image: mysql
     volumes:
       - ./mysqldbdata:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    # command: --default-authentication-plugin=mysql_native_password
+    # restart: always
     environment:
       MYSQL_ROOT_PASSWORD: toor
-      # MYSQL_DATABASE: nodemysql
+      MYSQL_DATABASE: nodesequelize
       # MYSQL_USER: root
       # MYSQL_PASSWORD: toor
     ports:
       - 3306:3306
 
-  adminer:
-    image: adminer
-    restart: always
+  phpmyadmin:
+    image: phpmyadmin
+    # restart: always
     ports:
-      - 8080:8080
-
-  # phpmyadmin:
-  #   image: phpmyadmin
-  #   restart: always
-  #   ports:
-  #     - 8080:80
-  #   environment:
-  #     - PMA_ARBITRARY=1
-
-#   admin:
-#         image: "phpmyadmin/phpmyadmin"
-#         restart: always
-#         ports:
-#           - "8060:80"
-#         links:
-#           - mysql:db
-#         depends_on:
-#           - mysql
-# volumes:
-#   db:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
